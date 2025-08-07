@@ -67,6 +67,6 @@ function salute() {
   return "Good evening!";
 }
 
-let isMorning = false;
+let isMorning = true;
 
 console.log(salute());
