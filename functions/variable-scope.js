@@ -61,7 +61,8 @@ function outside() {
   return inside;
 }
 
-let score = outside();
+let score = outside(); //Must hold to the retunred function reference from outside() so it doesn't
+//run again and deletes persistence, this way keeps persistance alive.
 
 console.log(score()); // 15
 console.log(score()); // 25
