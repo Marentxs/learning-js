@@ -62,3 +62,30 @@ function sumInput() {
 }
 
 sumInput();
+
+// EXERCISE 4: Average of Positive Numbers
+// Description:
+//  - Create an array with at least 8 numbers (include both positive and negative values).
+//  - Loop through the array and collect only the positive numbers into a new array.
+//  - Calculate the average of those positive numbers.
+//  - Display both the new array and the calculated average.
+// Hint: The average is the sum of the numbers divided by how many numbers there are.
+
+let mixed = [4, -3, 5, -6, 8, -7, 2, -1];
+let positive = [];
+
+for (let i = 0; i < mixed.length; i++) {
+  if (mixed[i] > 0) {
+    positive.push(mixed[i]);
+  }
+}
+
+let sum = 0;
+for (let i = 0; i < positive.length; i++) {
+  sum += positive[i];
+}
+
+let average = sum / positive.length;
+
+console.log("The positive numbers are", positive);
+console.log("The average is:", average);
