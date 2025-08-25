@@ -68,21 +68,30 @@ console.log("Your new array is:", inPlace); // 2 - 4
 
 let arrDecrease = [5, 2, 1, -10, 8];
 
-// ... your code to sort it in decreasing order
+function decreaseNumeric(a, b) {
+  if (a < b) return 1;
+  if (a == b) return 0;
+  if (a > b) return -1;
+}
 
-alert(arr); // 8, 5, 2, 1, -10
+arrDecrease.sort(decreaseNumeric);
+console.log(arrDecrease); // [8, 5, 2, 1, -10]
 
 // EXERCISE 5: Copy and Sort Array
 // Description:
-//  - Create a function copySorted(arr) that returns a sorted copy of an array of strings.
+//  - Create a function copySorted(arr) that returns a sorted copy of an array.
 //  - The original array must remain unmodified.
 
-let arr = ["HTML", "JavaScript", "CSS"];
+let arrFundamentals = ["HTML", "JavaScript", "CSS"];
 
-let sorted = copySorted(arr);
+function copySorted(arr) {
+  return arr.slice().sort((a, b) => a.localeCompare(b)); //slice() creates copy
+}
 
-alert(sorted); // CSS, HTML, JavaScript
-alert(arr); // HTML, JavaScript, CSS (no changes)
+let sorted = copySorted(arrFundamentals);
+
+console.log(arrFundamentals); // HTML, JavaScript, CSS (no changes)
+console.log(sorted); // CSS, HTML, JavaScript
 
 // EXERCISE 6: Extract Names from User Objects
 // Description:
@@ -95,7 +104,8 @@ let mary = { name: "Mary", age: 28 };
 
 let users = [john, pete, mary];
 
-let names =
-  /* ... your code */
+let names = users.map(function (user) {
+  return user.name;
+});
 
-  alert(names); // John, Pete, Mary
+console.log(names); // John, Pete, Mary
