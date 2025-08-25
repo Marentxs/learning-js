@@ -59,3 +59,43 @@ for (let i = 0; i < inPlace.length; i++) {
 }
 
 console.log("Your new array is:", inPlace); // 2 - 4
+
+// EXERCISE 4: Sort in Decreasing Order
+// Description:
+//  - You have an array of numbers.
+//  - Sort the array in decreasing order (largest → smallest).
+//  - The original array should be modified in place.
+
+let arrDecrease = [5, 2, 1, -10, 8];
+
+// ... your code to sort it in decreasing order
+
+alert(arr); // 8, 5, 2, 1, -10
+
+// EXERCISE 5: Copy and Sort Array
+// Description:
+//  - Create a function copySorted(arr) that returns a sorted copy of an array of strings.
+//  - The original array must remain unmodified.
+
+let arr = ["HTML", "JavaScript", "CSS"];
+
+let sorted = copySorted(arr);
+
+alert(sorted); // CSS, HTML, JavaScript
+alert(arr); // HTML, JavaScript, CSS (no changes)
+
+// EXERCISE 6: Extract Names from User Objects
+// Description:
+//  - You have an array of user objects, each with a name and age property.
+//  - Write code that converts it into an array of names only.
+
+let john = { name: "John", age: 25 };
+let pete = { name: "Pete", age: 30 };
+let mary = { name: "Mary", age: 28 };
+
+let users = [john, pete, mary];
+
+let names =
+  /* ... your code */
+
+  alert(names); // John, Pete, Mary
