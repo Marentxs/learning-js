@@ -91,7 +91,7 @@ function copySorted(arr) {
 let sorted = copySorted(arrFundamentals);
 
 console.log(arrFundamentals); // HTML, JavaScript, CSS (no changes)
-console.log(sorted); // CSS, HTML, JavaScript
+console.log(copySorted); // CSS, HTML, JavaScript
 
 // EXERCISE 6: Extract Names from User Objects
 // Description:
@@ -102,9 +102,9 @@ let alice = { name: "Alice", age: 22 };
 let bob = { name: "Bob", age: 27 };
 let charlie = { name: "Charlie", age: 31 };
 
-let users = [alice, bob, charlie];
+let usersAlt = [alice, bob, charlie];
 
-let names = users.map(function (user) {
+let names = usersAlt.map(function (user) {
   return user.name;
 });
 
@@ -124,17 +124,21 @@ let sofia = { name: "Sofia", surname: "Khan", id: 3 };
 
 let users = [anna, mark, sofia];
 
-let usersMapped =
-  /* ... your code ... */
+let usersMapped = users.map(function (user) {
+  return {
+    fullName: user.name + " " + user.surname,
+    id: user.id,
+  };
+});
 
-  // Expected result:
-  // [
-  //   { fullName: "Anna Lopez", id: 1 },
-  //   { fullName: "Mark Johnson", id: 2 },
-  //   { fullName: "Sofia Khan", id: 3 }
-  // ]
+// Expected result:
+// [
+//   { fullName: "Anna Lopez", id: 1 },
+//   { fullName: "Mark Johnson", id: 2 },
+//   { fullName: "Sofia Khan", id: 3 }
+// ]
 
-  console.log(usersMapped[0].id); // 1
+console.log(usersMapped[0].id); // 1
 console.log(usersMapped[0].fullName); // Anna Lopez
 
 // EXERCISE 8: Sort Users by Age
@@ -149,7 +153,13 @@ let noah = { name: "Noah", age: 28 };
 
 let arr = [emma, lucas, noah];
 
-sortByAge(arr);
+function sortByAge(a, b) {
+  if (a.age > b.age) return 1;
+  if (a.age == b.age) return 0;
+  if (a.age < b.age) return -1;
+}
+
+arr.sort(sortByAge);
 
 console.log(arr[0].name); // Lucas
 console.log(arr[1].name); // Noah
