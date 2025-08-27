@@ -153,13 +153,15 @@ let noah = { name: "Noah", age: 28 };
 
 let arr = [emma, lucas, noah];
 
-function sortByAge(a, b) {
-  if (a.age > b.age) return 1;
-  if (a.age == b.age) return 0;
-  if (a.age < b.age) return -1;
+function sortByAge(users) {
+  users.sort(function (a, b) {
+    if (a.age > b.age) return 1;
+    if (a.age == b.age) return 0;
+    if (a.age < b.age) return -1;
+  });
 }
 
-arr.sort(sortByAge);
+sortByAge(arr);
 
 console.log(arr[0].name); // Lucas
 console.log(arr[1].name); // Noah
@@ -173,5 +175,13 @@ console.log(arr[2].name); // Emma
 
 let arrRandom = [1, 2, 3];
 
-shuffle(arr);
+function shuffle(arr) {
+  for (let i = array.length - 1; i > 0; i--) {
+    // Pick a random index from 0 to i
+    let j = Math.floor(Math.random() * (i + 1));
+
+    // Swap elements at i and j
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
 console.log(arr); // Could be [3,2,1], [2,1,3], [1,3,2], etc.
