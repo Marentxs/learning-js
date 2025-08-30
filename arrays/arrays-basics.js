@@ -119,5 +119,5 @@ function additionTripledEvens(array) {
     .map((num) => num * 3)
     .reduce((total, currentItem) => {
       return total + currentItem;
-    }, 0);
+    });
 }
