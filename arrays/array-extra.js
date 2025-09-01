@@ -11,6 +11,16 @@
 //
 // Hint: Use .split("_") to split the string, transform each part, and then .join("").
 
+function snakeToCamel(str) {
+  let arr = str.split("_");
+
+  for (let i = 1; i < array.length; i++) {
+    arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
+  }
+
+  return arr.join("");
+}
+
 // EXERCISE 1: Filter scores in a range
 // Description:
 //  - Write a function filterScores(scores, min, max) that takes an array of numbers.
@@ -23,16 +33,35 @@
 //  console.log(filtered); // [82, 67]
 //  console.log(scores);   // [95, 40, 82, 67, 29] (unchanged)
 
+function filterScores(scores, min, max) {
+  let minVal = Math.min(...scores);
+  let maxVal = Math.max(...scores);
+
+  let filtered = scores.filter((num) => {
+    return num === minVal || num === maxVal;
+  });
+
+  return filtered; // returns a new array
+}
+
 // EXERCISE 2: Filter prices in place
 // Description:
 //  - Write a function filterPricesInPlace(prices, min, max) that takes an array of prices.
 //  - It should remove all elements that are not between min and max (inclusive).
 //  - The function should modify the array directly and not return anything.
 //
-// Example:
-//  let prices = [120, 50, 300, 80, 25];
-//  filterPricesInPlace(prices, 50, 150);
-//  console.log(prices); // [120, 50, 80]
+
+function filterPricesInPlace(prices, min, max) {
+  const filtered = (prices = prices.filter((num) => num >= min && num <= max));
+  prices.length = 0;
+  prices.push(...filtered);
+}
+
+const prices = [10, 20, 30, 40, 50];
+console.log("Before:", prices);
+
+filterPricesInPlace(prices, 30, 45);
+console.log("After:", prices);
 
 // EXERCISE 3: Sort ages in descending order
 // Description:
