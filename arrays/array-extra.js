@@ -4,11 +4,7 @@
 //  - The first word stays lowercase, and each following word starts with an uppercase letter.
 //  - Underscores are removed in the process.
 //
-// Examples:
-//  snakeToCamel("hello_world") == "helloWorld"
-//  snakeToCamel("make_javascript_fun") == "makeJavascriptFun"
-//  snakeToCamel("convert_this_string") == "convertThisString"
-//
+// Example: snakeToCamel("hello_world") == "helloWorld"
 // Hint: Use .split("_") to split the string, transform each part, and then .join("").
 
 function snakeToCamel(str) {
@@ -52,7 +48,8 @@ function filterScores(scores, min, max) {
 //
 
 function filterPricesInPlace(prices, min, max) {
-  const filtered = (prices = prices.filter((num) => num >= min && num <= max));
+  const filtered = prices.filter((num) => num >= min && num <= max);
+
   prices.length = 0;
   prices.push(...filtered);
 }
@@ -67,38 +64,67 @@ console.log("After:", prices);
 // Description:
 //  - You have an array of ages. Write code to sort the array in decreasing order.
 //  - The sorting should modify the array.
-//
-// Example:
-//  let ages = [21, 45, 18, 60, 35];
-//  // your code here
-//  console.log(ages); // [60, 45, 35, 21, 18]
+
+let ages = [21, 45, 18, 60, 35];
+
+function compareNumeric(a, b) {
+  if (a > b) return 1;
+  if (a == b) return 0;
+  if (a < b) return -1;
+}
+
+ages.sort(compareNumeric); // Sort in order
+ages.reverse(); // Reverse order
+console.log("The array in reverse order is", ages); // [60, 45, 35, 21, 18]
 
 // EXERCISE 4: Copy and sort names
 // Description:
 //  - Write a function copySortedNames(names) that creates a sorted copy of an array of strings.
 //  - The original array must remain unchanged.
-//
-// Example:
-//  let names = ["Zoe", "Alice", "Mike"];
-//  let sorted = copySortedNames(names);
-//  console.log(sorted); // ["Alice", "Mike", "Zoe"]
-//  console.log(names);  // ["Zoe", "Alice", "Mike"] (unchanged)
+
+function copySortedNames(names) {
+  return names.slice().sort();
+}
+
+let people = ["Zoe", "Alice", "Mike"];
+let sortedPeople = copySortedNames(people);
+
+console.log(sortedPeople); // ["Alice", "Mike", "Zoe"]
+console.log(people); // ["Zoe", "Alice", "Mike"] (unchanged)
 
 // EXERCISE 5: Shuffle deck
 // Description:
 //  - Write a function shuffle(deck) that randomly reorders the elements of an array.
 //  - Each possible ordering should have an equal probability.
-//
-// Example:
-//  let deck = ["Ace", "King", "Queen"];
-//  shuffle(deck);
-//  console.log(deck); // e.g. ["Queen", "Ace", "King"] (different each run)
+
+let deck = ["Ace", "King", "Queen"];
+
+function shuffle(deck) {
+  let result = [];
+  let copy = arr.slice(); // don’t destroy original
+
+  while (copy.length > 0) {
+    let randomIndex = Math.floor(Math.random() * copy.length);
+    result.push(copy[randomIndex]);
+    copy.splice(randomIndex, 1);
+  }
+
+  return result;
+}
+
+shuffle(deck);
+console.log(deck); // ["Queen", "Ace", "King"] (different each run)
 
 // EXERCISE 6: Unique words
 // Description:
 //  - Write a function uniqueWords(words) that returns a new array with only the unique values from the given array.
 //  - The order of the first occurrence should be preserved.
 //
-// Example:
-//  let words = ["apple", "banana", "apple", "orange", "banana", "grape"];
-//  console.log(uniqueWords(words)); // ["apple", "banana", "orange", "grape"]
+
+let words = ["apple", "banana", "apple", "orange", "banana", "grape"];
+
+function uniqueWords(words) {
+  return words.filter((item, index) => words.indexOf(item) === index);
+}
+
+console.log(uniqueWords(words)); // ["apple", "banana", "orange", "grape"]
