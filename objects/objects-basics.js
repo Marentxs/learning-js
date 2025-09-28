@@ -38,8 +38,25 @@ console.log(isEmpty(schedule)); // false
 
 // EXERCISE 3: Sum object properties
 // Description:
-// Given an object salaries with numeric values, write the code to sum all salaries and store the result in the variable sum.
+// Given an object salaries with numeric values,
+// write the code to sum all salaries and store the result in the variable sum.
 // If salaries is empty, the result must be 0.
+
+function sumSalaries(arr) {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i];
+  }
+  return sum;
+}
+
+let salaries = {
+  John: 100,
+  Pete: 300,
+  Mary: 250,
+};
+
+console.log(sumSalaries(Object.values(salaries))); // 650
 
 // EXERCISE 4: Multiply numeric property values by 2
 // Description:
