@@ -60,11 +60,21 @@ console.log(sumSalaries(Object.values(salaries))); // 650
 
 // EXERCISE 4: Multiply numeric property values by 2
 // Description:
-// Create a function multiplyNumeric(obj) that multiplies all numeric property values of obj by 2.
+// Create a function multiplyNumeric(obj) that multiplies
+// all numeric property values of obj by 2.
 // It should modify the object in-place.
 // Use typeof to check if a property value is a number.
 
+function multiplyNumeric() {
+  for (let item in menu) {
+    if (typeof menu[item] === "number") {
+      menu[item] = menu[item] * 2;
+    }
+  }
+}
+
 // Test case
+
 let menu = {
   width: 200,
   height: 300,
