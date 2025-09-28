@@ -21,7 +21,13 @@ delete user.name;
 // Write a function isEmpty(obj) which returns true
 // if the object has no properties, and false otherwise.
 
-function isEmpty(obj) = if Object.keys(obj)length === 0 {return true} else {false};
+function isEmpty(obj) {
+  if (Object.keys(obj).length === 0) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
 // Test cases
 let schedule = {};
